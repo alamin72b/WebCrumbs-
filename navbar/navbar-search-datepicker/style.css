@@ -1,0 +1,265 @@
+/* === Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Patrick Hand SC", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 100px 0 70px; /* top padding for fixed navbar, bottom for mobile nav */
+  }
+  
+  /* === Navbar === */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 30px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Logo & Search grouping */
+  .search-logo {
+    display: flex;
+    gap: 50px;
+    justify-content: space-around;
+  }
+  
+  /* Logo styling */
+  .navbar-logo a {
+    font-size: 30px;
+    color: #f06529;
+    text-decoration: none;
+  }
+  
+  /* Search field layout */
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .search-field {
+    position: relative;
+  }
+  .text-search {
+    width: 300px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  .search-input-icon {
+    display: none; /* shown under 500px */
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  /* Date-picker dropdown */
+  .dropdown {
+    position: relative;
+    width: 130px;
+  }
+  .dropdown-btn {
+    width: 100%;
+    padding: 12px 24px 12px 36px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+  .date-input-icon {
+    pointer-events: none;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #888;
+  }
+  .dropdown-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #888;
+  }
+  
+  /* Search button */
+  .search-btn {
+    padding: 12px 24px;
+    background: #0061f2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .search-btn:hover {
+    background: #004bb5;
+  }
+  
+  /* Navbar icons */
+  .navbar-icons {
+    display: flex;
+    gap: 25px;
+  }
+  .navbar-icons a {
+    font-size: 24px;
+    padding: 12px 24px;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+  }
+  .navbar-icons a:hover {
+    background: #0061f2;
+    color: #fff;
+    border-radius: 20px;
+  }
+  .navbar-icons a:active {
+    color: #004bb5;
+  }
+  
+  /* === Flatpickr overrides === */
+  .flatpickr-calendar {
+    position: absolute;
+    top: calc(100% + 8px);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    z-index: 99999;
+    width: max-content !important;
+    min-width: 340px;
+  }
+  .dropdown.flipped .flatpickr-calendar {
+    right: 0;
+    left: auto;
+  }
+  .dropdown.flipped-left .flatpickr-calendar {
+    left: 0;
+    right: auto;
+  }
+  
+  /* Calendar day styling */
+  .flatpickr-day {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin: 4px;
+    padding: 0;
+  }
+  .flatpickr-day:hover {
+    background: #0061f2;
+    color: #fff;
+  }
+  .flatpickr-weekday {
+    font-weight: bold;
+  }
+  .flatpickr-month {
+    text-align: center;
+    font-weight: bold;
+  }
+  .flatpickr-prev-month,
+  .flatpickr-next-month {
+    font-size: 18px;
+    color: #0061f2;
+  }
+  
+  /* === Responsive Tweaks === */
+  @media (max-width: 1268px) {
+    .navbar {
+      flex-direction: column;
+      padding: 10px 20px;
+    }
+    .navbar-logo,
+    .navbar-search {
+      margin-bottom: 10px;
+    }
+    .navbar-icons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      justify-content: space-around;
+      padding: 8px 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+  @media (max-width: 1080px) {
+    .text-search {
+      width: 200px;
+    }
+    body {
+      padding-top: 150px;
+    }
+  }
+  @media (max-width: 720px) {
+    .search-logo {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  @media (max-width: 500px) {
+    .search-btn {
+      display: none;
+    }
+    .search-input-icon {
+      display: block;
+    }
+    .text-search {
+      padding-right: 40px;
+    }
+  }
+  @media (max-width: 480px) {
+    .navbar-icons a {
+      padding: 8px;
+      font-size: 20px;
+    }
+    .date-input-icon,
+    .dropdown-icon {
+      font-size: 14px;
+    }
+    .dropdown-btn {
+      font-size: 14px;
+      padding: 12px 32px;
+    }
+  }
+  @media (max-width: 380px) {
+    .navbar-icons a {
+      font-size: 18px;
+    }
+    .date-input-icon,
+    .dropdown-icon {
+      font-size: 11px;
+    }
+    .dropdown-btn {
+      font-size: 10px;
+      padding-left: 29px;
+    }
+  }
+  
+  /* Ensure dropdown overflow is visible (fix for some browsers) */
+  .navbar,
+  .navbar-search,
+  .dropdown,
+  .dropdown-wrapper {
+    overflow: visible !important;
+  }
+  

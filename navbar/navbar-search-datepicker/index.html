@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripEngine</title>
+
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="search-logo">
+      <div class="navbar-logo">
+        <a href="#">TripEngine</a>
+      </div>
+      <div class="navbar-search">
+        <div class="search-field">
+          <input class="text-search" type="text" placeholder="Find places and things…" />
+          <i class="fas fa-search search-input-icon"></i>
+        </div>
+        <div class="dropdown">
+          <div class="dropdown-wrapper">
+            <input id="datepicker" class="dropdown-btn" type="text" placeholder="Anytime" readonly />
+            <i class="fas fa-calendar-alt date-input-icon"></i>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+        </div>
+        <button class="search-btn">Search</button>
+      </div>
+    </div>
+    <div class="navbar-icons">
+      <a href="#"><i class="fas fa-heart"></i></a>
+      <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      <a href="#"><i class="fas fa-globe"></i></a>
+      <a href="#"><i class="fas fa-user"></i></a>
+    </div>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
