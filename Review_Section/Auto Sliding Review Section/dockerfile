@@ -1,0 +1,14 @@
+# Use a lightweight official Python image
+FROM python:3.12-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy project files into the container
+COPY . .
+
+# Expose port 8000 for HTTP access
+EXPOSE 8000
+
+# Serve files using Python’s built-in HTTP server
+CMD ["python", "-m", "http.server", "8000"]

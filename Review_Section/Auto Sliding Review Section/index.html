@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Always declare the character encoding and viewport for responsive design -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Section – per-slide entrance</title>
+
+  <!-- Load the Share Tech font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+
+  <!-- Link to the external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="rbody">
+    <!-- Decorative background panel -->
+    <div class="rbg"></div>
+
+    <!-- Section title and subtitle -->
+    <div class="rtitle">
+      <h1>What Our Clients Say</h1>
+      <p>We value our clients' feedback and strive to improve our services.</p>
+    </div>
+
+    <div class="container">
+      <!-- ─── LEFT PANEL (Slider) ───────────────────────── -->
+      <div class="rleft">
+        <div class="slider-wrapper">
+          <div class="rleftc">
+            <div class="slides">
+              <!-- Each .slide holds one testimonial -->
+              <div class="slide" data-bg="Rbg1.png">
+                <div class="raddress">
+                  <div class="rphoto">
+                    <!-- Client photo -->
+                    <img src="1.jpg" alt="profile">
+                  </div>
+                  <div class="name">
+                    <h2>Name 1</h2>
+                  </div>
+                </div>
+                <div class="rcontent">
+                  <!-- Testimonial text and rating -->
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p>⭐⭐⭐⭐☆</p>
+                </div>
+              </div>
+
+              <div class="slide" data-bg="Rbg2.jpg">
+                <div class="raddress">
+                  <div class="rphoto">
+                    <img src="1.jpg" alt="profile">
+                  </div>
+                  <div class="name">
+                    <h2>Name 2</h2>
+                  </div>
+                </div>
+                <div class="rcontent">
+                  <p>Aliquid deserunt praesentium laborum repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation buttons -->
+          <button class="prev" aria-label="Previous slide">&#10094;</button>
+          <button class="next" aria-label="Next slide">&#10095;</button>
+        </div>
+
+        <!-- Optional call-to-action -->
+        <div class="button">See More</div>
+      </div>
+
+      <!-- ─── RIGHT PANEL (Static recent reviews) ─────────── -->
+      <div class="rright">
+        <!-- Top recent review -->
+        <div class="rtop">
+          <div class="raddress">
+            <div class="rphoto"><img src="1.jpg" alt="profile"></div>
+            <div class="name"><h2>Name</h2></div>
+          </div>
+          <div class="rcontent">
+            <p>The Psychology of Color on Website Design – Infographic</p>
+            <p>⭐⭐⭐⭐⭐</p>
+          </div>
+        </div>
+
+        <!-- Bottom recent review -->
+        <div class="rbottom">
+          <div class="raddress">
+            <div class="rphoto"><img src="1.jpg" alt="profile"></div>
+            <div class="name"><h2>Name</h2></div>
+          </div>
+          <div class="rcontent">
+            <p>Tips for a Successful Design Portfolio</p>
+            <p>⭐⭐⭐☆☆</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Link to the external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

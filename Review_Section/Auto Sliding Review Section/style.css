@@ -1,0 +1,288 @@
+/* style.css */
+
+/* ─── Global Reset & Base Styles ─────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;            /* Include padding/border in element’s total width/height */
+  font-family: 'Share Tech', Arial, sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+/* ─── Main Section Container ────────────────────── */
+.rbody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;                        /* 75% of viewport height */
+  padding: 20px;
+}
+
+/* ─── Layout Wrapper ───────────────────────────── */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  height: 85%;
+  width: 80%;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* ─── LEFT PANEL (hidden then slides up) ───────── */
+.rleft {
+  position: relative;
+  width: 50%;
+  height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  background: #d4dbce center/cover no-repeat;
+  transform: translateY(110%);         /* Start off-screen below */
+  opacity: 0;                          /* Invisible initially */
+  transition: transform .8s ease-out, opacity .8s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Class toggled via JS to slide the panel into view */
+.rleft.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ─── Slider Inner Wrapper (fades in on each slide) ─ */
+.slider-wrapper {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;                          /* Fade-out state */
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+  pointer-events: none;                /* Disable until shown */
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+/* Class toggled via JS to fade the slide content back in */
+.slider-wrapper.is-on {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ─── Carousel Slides Container ───────────────── */
+.rleftc {
+  overflow: hidden;                    /* Hide overflowing slides */
+  width: 100%;
+  height: 100%;
+  background: #ffefef;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Slides stack vertically, we’ll translateY to move them */
+.slides {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s ease;
+}
+
+/* Individual slide */
+.slide {
+  flex: 0 0 100%;                      /* Full height of container */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 8px 12px;
+  gap: 12px;
+}
+
+/* ─── Prev/Next Buttons ───────────────────────── */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  z-index: 10;
+}
+
+/* Position each side */
+.prev { left: -42px; }
+.next { right: -42px; }
+
+/* Hover effect */
+.prev:hover, .next:hover {
+  font-size: 28px;
+  color: #045208;
+}
+
+/* ─── “See More” Button ─────────────────────────── */
+.button {
+  text-align: center;
+  padding: 10px 20px;
+  background: #47c200;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color .3s;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+.button:hover {
+  background: #045208;
+}
+
+/* ─── Shared Review Item Styles ─────────────────── */
+.raddress {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.rphoto img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;                 /* Circular image */
+  object-fit: cover;
+  border: 2px solid #b92121;
+}
+
+.name h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #b92121;
+}
+
+.rcontent {
+  margin: 14px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.rcontent p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.4;
+  padding: 5px 0;
+}
+
+/* ─── RIGHT PANEL (static content) ─────────────── */
+.rright {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rright .rtop,
+.rright .rbottom {
+  width: 80%;
+  background: #fdfdfd;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+/* Decorative top color block behind the title */
+.rbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 36%;
+  background: #045208;
+  z-index: -1;
+}
+
+/* Title styling */
+.rtitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* ─── Responsive Breakpoints ────────────────────── */
+@media (max-width: 1280px) {
+  .rright {
+    display: none;                     /* Hide right panel on narrower screens */
+  }
+  .rleft {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  .rleft {
+    width: 100%;
+    height: 80%;
+  }
+  .rcontent {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 0;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 680px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 580px) {
+  .slider-wrapper {
+    width: 85%;
+  }
+  .slide {
+    padding: 5px;
+  }
+  .raddress, .rcontent {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0;
+  }
+  .rleft {
+    height: 90%;
+  }
+}
